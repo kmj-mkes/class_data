@@ -16,7 +16,7 @@ public class Operator03 {
 		System.out.println(true && true); // 단독으로 쓰이는 경우는 거의 없음
 
 		// 19 보다 크고(초과), 60 보다 작은(미만)
-		int var = 17;
+		int var = 45;
 		System.out.println((var > 19) && (var < 60)); // 비교연산자와 같이 쓰이는 경우가 많음
 		System.out.println();
 
@@ -40,7 +40,7 @@ public class Operator03 {
 		System.out.println();
 		
 		// 덧셈 먼저
-		sum = 10 + 20 * 3;
+		sum = (10 + 20) * 3;
 		System.out.println(" 10 + 20 * 3 = " + sum);
 		System.out.println();
 
@@ -48,10 +48,10 @@ public class Operator03 {
 		// 대입연산자이므로 실행방향은 우측에서 좌측 ( 좌측 <----- 우측 )
 		int a1 = 10;
 		int a2;
-		int a3;
+		int a3 = 20;
 
-		// a1 = a2 = a3; // 에러
-		a3 = a2 = a1;
+		a1 = a2 = a3; // 에러
+		//a3 = a2 = a1;
 		
 		System.out.println("a1 = " + a1 + " : a2 = " + a2 + " : a3 = " + a3);
 		System.out.println();
@@ -67,7 +67,7 @@ public class Operator03 {
 		System.out.println();
 
 		// 복합 대입 연산 활용
-		n2 += 1;
+		n2 += 1; // n2 = n2 + 1
 		System.out.println("n2 += 1 >>> " + n2);
 		System.out.println();
 
@@ -77,7 +77,7 @@ public class Operator03 {
 		System.out.println();
 
 		// 복합 대입 연산 활용
-		
+		n2 -= 2 ;		
 		System.out.println("n2 = n2 - 2 >>> " + n2);
 		System.out.println();
 
@@ -86,8 +86,8 @@ public class Operator03 {
 		System.out.println("n = n * 2 >>> " + n);
 		System.out.println();
 		
-		// 복합 대입 연산 활용
-
+		// 복합 대입 연산 활용	
+		n2 *= 2;
 		System.out.println("n2 = n2 * 2 >>> " + n2);
 		System.out.println();
 
@@ -97,7 +97,7 @@ public class Operator03 {
 		System.out.println();
 
 		// 복합 대입 연산 활용
-		
+		n2 /= 5;		
 		System.out.println("n2 = n2 / 5 >>> " + n2);
 		System.out.println();
 
@@ -108,7 +108,8 @@ public class Operator03 {
 		System.out.println();
 
 		// 복합 대입 연산 활용
-		
+		n2 = 10;
+		n2 %= 3;
 		System.out.println("n2 = n2 % 3 >>> " + n2);
 		System.out.println();
 
@@ -134,11 +135,20 @@ public class Operator03 {
 
 		// 동일한 연산을 각기 다른 방법으로 처리 (더하기)
 		System.out.println("num = num + 1 >> " + (num = num + 1));
+		// num = 10;
 		System.out.println("num += 1 >> " + (num += 1));
+		// num = 10;
 		System.out.println("++num >> " + (++num));
 		System.out.println();
 
 		// 동일한 연산을 각기 다른 방법으로 처리 (빼기도 해보기)
+		num = 10;
+		System.out.println(num = num - 1);
+		num = 10;
+		System.out.println(num -= 1);
+		num = 10;
+		System.out.println(--num);
+		System.out.println();
 
 
 		//--------------------------------------
@@ -162,7 +172,9 @@ public class Operator03 {
 		num = 10;
 		
 		result = 10 + num;
-		++num;
+		++num; // num = num + 1
+		
+		// result = ++result;
 
 		System.out.println("10 + ++num = " + result);
 		System.out.println();
@@ -193,10 +205,16 @@ public class Operator03 {
 
 		//---------------------------------
 		
-		// 사용자 나이 입력 - 19세 이상 통과, 미만 거절
+		// 사용자 나이 입력 - 19세 이상 통과, 60세 미만 거절
 		// true(통과), false(거절)
 		// Operator02에서는 true / false의 값만 확인하였으나, 조건 연산자를 통해 비교된 값을 원하는 형태의 결과로 보여줄 수 있다.
 
+		int age = 30;
+		String ageResult = "";
+		
+		ageResult = (age >= 19 && age < 60) ? "통과" : "거절";
+		
+		System.out.println("회원님의 나이는 " + age + "세이므로, " + ageResult + " 입니다.");
 
 	}
 }

@@ -75,7 +75,7 @@ public class Operator01 {
 		System.out.println(10 / 3.0);   // 정수/실수 = 실수 3.333333333333333 >> double / double = double
 		System.out.println();
 
-		// System.out.println(100 / 0); ArithmeticException: / by zero
+		// System.out.println(100 / 0); //ArithmeticException: // by zero
 		System.out.println(100.0 / 0); // 피제수나 제수 둘중의 하나가 실수가 되면 가능.
 		System.out.println(100 / 0.0);
 		System.out.println(-100 / 0.0);
@@ -91,6 +91,13 @@ public class Operator01 {
 		System.out.println();
 		
 		// 홀짝 구분
-
+		// 나머지가 0 이면 짝수, 나머지가 1 이면 홀수
+		int num1 = 101;
+		int numResult;
+		
+		numResult = num1 % 2;
+		
+		System.out.println(numResult);
+		
 	}
 }
