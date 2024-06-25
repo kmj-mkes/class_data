@@ -10,6 +10,9 @@ public class Method04 {
 		[ 요구사항 ]
 		- 숫자를 2개 입력받아 연산식을 반환하는 메소드를 선언하세요.
 		- 연산식 ( + , - , * , / , % )를 각각의 메소드로 선언하세요.
+		
+		[ 조건추가 ]
+		- 0을 포함한 양수만 입력 가능
 		--------------------------
 		1. 입력 > scanner 생성
 		2. 사용할 변수 선언 및 초기화
@@ -38,13 +41,40 @@ public class Method04 {
 		result = add(n1, n2);
 		System.out.println(result);
 		
+		result = subtract(n1, n2);
+		System.out.println(result);
 		
+		result = multiply(n1, n2);
+		System.out.println(result);
+		
+		result = divide(n1, n2);
+		System.out.println(result);
+		
+		result = mod(n1, n2);
+		System.out.println(result);
 		
 		// 2. 조건 추가 - 숫자는 0을 포함한 양수만 허용
 		System.out.println("=====================================================");
 		System.out.println("조건 추가 - 숫자는 0을 포함한 양수만 허용");
 
-
+		if (n1 >= 0 && n2 >= 0) {
+			result = add(n1, n2);
+			System.out.println(result);
+			
+			result = subtract(n1, n2);
+			System.out.println(result);
+			
+			result = multiply(n1, n2);
+			System.out.println(result);
+			
+			result = divide(n1, n2);
+			System.out.println(result);
+			
+			result = mod(n1, n2);
+			System.out.println(result);
+		} else {
+			System.out.println("[ERR] 0을 포함한 양수만 입력이 가능합니다.");
+		}
 
 		sc.close();
 
@@ -94,8 +124,12 @@ public class Method04 {
 		double result = 0;
 		String output = "";
 
-		result = (double) n1 / n2;
-		output = n1 + " / " + n2 + " = " + result;
+		if (n2 == 0) {
+			output = "0으로는 나눌 수 없음 !!";
+		} else {
+			result = (double) n1 / n2;
+			output = n1 + " / " + n2 + " = " + result;
+		}
 
 		return output;
 	}
@@ -106,8 +140,12 @@ public class Method04 {
 		int result = 0;
 		String output = "";
 
-		result = n1 % n2;
-		output = n1 + " % " + n2 + " = " + result;
+		if (n2 == 0) {
+			output = "0으로는 나눌 수 없음 !!";
+		} else {
+			result = n1 % n2;
+			output = n1 + " % " + n2 + " = " + result;
+		}
 
 		return output;
 	}

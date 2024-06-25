@@ -1,7 +1,5 @@
 package java_02;
 
-import java_02.Method01;
-
 public class Method02 {
 
 	public static void main(String[] args) {
@@ -38,6 +36,11 @@ public class Method02 {
 
 		result = getName("백종원"); //반환된 return값이 main result의 값으로 치환
 		System.out.println("고객명 : " + result);
+		
+		// 메소드 호출
+		Method01.hello();
+		Method01.introduce();
+		Method01.bye();
 
 	}
 

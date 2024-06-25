@@ -1,6 +1,6 @@
 package java_02;
 
-import java_00.Switch03;
+import java_01.Switch03;
 
 public class Method03 {
 
@@ -16,6 +16,8 @@ public class Method03 {
 		
 		
 		Switch03.main(null);
+		
+		Method01.hello();
 
 	}
 
