@@ -29,7 +29,45 @@ public class Method06 {
 		
 		 */
 
+		int num = 0;
+		int sum = 0;
+		
+		boolean flag = true;
+		
+		while (flag) {
+			num = getNum();
+			
+			if (num >= 1) {
+				sum = sum(num);
+				System.out.println("1부터 " + num + "까지의 합은 " + sum + " 입니다.");
+				flag = false;
+			} else {
+				System.out.println("1보다 작은 숫자는 계산할 수 없어요.");
+			}
+			
+		}
 
+	}
+	
+	// 숫자 입력 받기 method
+	public static int getNum() {
+	
+		System.out.println("숫자를 입력해 주세요 : ");
+		int num = sc.nextInt();
+		
+		return num;
+	}
+	
+	// 계산식 method
+	public static int sum(int num) {
+		int result = 0;
+		
+		for (int i=1; i<=num; i++) {
+			result = result + i;
+			//result += i;
+		}
+		
+		return result;
 	}
 
 }
