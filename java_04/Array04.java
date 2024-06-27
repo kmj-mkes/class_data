@@ -7,8 +7,8 @@ public class Array04 {
 		 * [ Array ] 베열의 예제 - 다차원 배열
 		 */
 
-		arrayEx01();
-		//		arrayEx02();
+//		arrayEx01();
+		arrayEx02();
 	}
 
 	// 이차원 배열 예제 01
@@ -22,6 +22,13 @@ public class Array04 {
 		// arr[0][2] = 3		arr[1][2] = 6
 
 		// 배열에 담긴 값을 확인하기 위한 출력문 작성
+		for (int row=0; row<arr1.length; row++) {
+			for (int col=0; col<arr1[row].length; col++) {
+				System.out.print(arr1[row][col] + "  ");
+			}
+
+			System.out.println();
+		}
 
 
 		System.out.println("============================");
@@ -31,11 +38,21 @@ public class Array04 {
 		arr2[0][0] = 10;
 		arr2[0][1] = 20;
 		arr2[0][2] = 30;
+
 		arr2[1][0] = 40;
 		arr2[1][1] = 50;
 		arr2[1][2] = 60;
 
 		// 배열에 담긴 값을 확인하기 위한 출력문 작성
+		for (int row=0; row<arr2.length; row++) {
+			for (int col=0; col<arr2[row].length; col++) {
+				System.out.print(arr2[row][col] + "   ");
+			}
+
+			System.out.println();
+		}
+
+
 
 	}
 
@@ -64,12 +81,24 @@ public class Array04 {
 
 		// 합계 계산 및 출력		
 		int sum = 0;
-
+		
 		// 배열에 대입한 난수들의 전체 합계 구하기
+		for (int row=0; row<arr.length; row++) {
+			int rowSum = 0; //각 행의 합계
+			
+			for (int col=0; col<arr[row].length; col++) {
+				rowSum += arr[row][col];
+			}
+			
+			System.out.println("각 행의 합계 : " + rowSum);
+			sum += rowSum;
+		}
 		
-		
+		System.out.println("배열의 총합 : " + sum);
 
-		System.out.println("전체 합 : " + sum);
+
+
+//		System.out.println("전체 합 : " + sum);
 	}
 
 }

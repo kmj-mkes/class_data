@@ -36,8 +36,8 @@ public class Array05 {
 		};
 
 
-		stuArray01(stuName, subName, score);
-//		stuArray02(stuName, subName, score);
+//		stuArray01(stuName, subName, score);
+		stuArray02(stuName, subName, score);
 //		javaFormat();
 	}
 
@@ -61,7 +61,22 @@ public class Array05 {
 	//	 *  - 네명 학생의 점수 평균을 구하시오.
 	public static void stuArray02(String[] stuName, String[] subName, int[][] score) {
 		System.out.println("===== [ stuArray02 ] =====");
+		
+		DecimalFormat formatter = new DecimalFormat("0.##");
+		String avgStr = "";
+		
+		for (int row=0; row<stuName.length; row++) {
+			int total = 0;
 
+			for (int col=0; col<subName.length; col++) {
+				total += score[row][col];
+			}
+
+			double avg = (double) total / subName.length;
+			avgStr = formatter.format(avg);
+			
+			System.out.println(stuName[row] + "의 점수 총합 : " + total + " 점 / 평균 : " + avgStr);
+		}
 	}
 
 	// JAVA Format 사용하기

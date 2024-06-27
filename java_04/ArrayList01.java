@@ -11,8 +11,8 @@ public class ArrayList01 {
 		 * [ ArrayList ] - 객체 배열
 		 */
 
-		arrayListEx01();
-//		arrayListEx02();
+//		arrayListEx01();
+		arrayListEx02();
 	}
 
 	// arrayList 객체 배열 예제 01
@@ -48,7 +48,11 @@ public class ArrayList01 {
 	    library.add(new Book("어린왕자", "생텍쥐페리"));
 
 	    // arrayList의 사이즈만큼 순회하여 book을 반환받아 해당 정보 출력
-
+	    for (int i=0; i<library.size(); i++) {
+	    	Book book = library.get(i);
+	    	
+	    	System.out.println(book.bookInfo());
+	    }
 
 	}
 	

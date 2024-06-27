@@ -19,7 +19,7 @@ public class Array03 {
 
         arrayEx01();
 //        arrayEx02();
-//        arrayEx03();
+        arrayEx03();
 	}
 
 	// 배열 복사 예제
@@ -66,7 +66,15 @@ public class Array03 {
 	    bookArray1[0] = new Book("태백산맥", "조정래");
 	    bookArray1[1] = new Book("데미안", "헤르만 헤세");
 	    bookArray1[2] = new Book("홍당무", "쥘 르나르");
+	    
+	    for (int i=0; i<bookArray1.length; i++) {
+	    	bookArray2[i] = bookArray1[i];
+	    }
 
+	    for (int i=0; i<bookArray2.length; i++) {
+	        System.out.println("책 이름 : " + bookArray2[i].getTitle());
+	        System.out.println("책 저자 : " + bookArray2[i].getAuthor());
+	    }
 
 	}
 

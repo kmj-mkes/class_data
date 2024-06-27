@@ -8,12 +8,12 @@ public class Array01 {
 		 * [ Array ] 베열의 예제
 		 */
 
-		arrayEx01();
+//		arrayEx01();
 //		arrayEx02();
 //		arrayEx03();
 //		arrayEx04();
-//		arrayEx05();
-//		arrayEx06();
+		arrayEx05();
+		arrayEx06();
 	}
 
 	// 기본 배열 생성 예제
@@ -22,7 +22,14 @@ public class Array01 {
 		int[] studentIDs_01 = new int[] { 101, 102, 103 };
 
 		// 오류 발생 (배열 선언 시, 초기화 값을 넣어주려면 숫자를 생략해야 함
-		//int[] studentIDs_02 = new int[3] { 101, 102, 103 };
+		int[] studentIDs_02 = new int[3];
+		studentIDs_02[0] = 200;
+		studentIDs_02[1] = 300;
+		studentIDs_02[2] = 400;
+		
+		System.out.println(studentIDs_02[0]);
+		System.out.println(studentIDs_02[1]);
+		System.out.println(studentIDs_02[2]);
 
 		// 배열 3개가 생성되고 초기값 0이 들어있다.
 		int[] studentIDs_03 = new int[3];
@@ -61,8 +68,8 @@ public class Array01 {
 
 		// 초기값을 지정하여 생성할 시에는 생성자 부분 생략 가능
 		int[] numbers3 = {100, 200, 300};
-		System.out.println("numbers3 배열의 첫번째 값 : " + numbers3[0]);
-		System.out.println("numbers3 배열의 두번째 값 : " + numbers3[1]);
+		System.out.println("numbers3 배열의 첫번째 값 : " + numbers3[1]);
+		System.out.println("numbers3 배열의 두번째 값 : " + numbers3[0]);
 		System.out.println("numbers3 배열의 세번째 값 : " + numbers3[2]);
 	}
 
@@ -71,9 +78,11 @@ public class Array01 {
 		System.out.println("===== [ 배열 생성 예제 03 ] =====");
 
 		int[] nArr = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }; // 초기화시 값 입력
+		
+		System.out.println("배열의 길이 : " + nArr.length);
 
 		for (int i=0; i<nArr.length; i++) {
-			System.out.println(nArr[i]);
+			System.out.println(i + "번째 값 : " + nArr[i]);
 		}
 	}
 
@@ -116,6 +125,8 @@ public class Array01 {
 		System.out.println("===== [ 배열 생성 예제 06 ] =====");
 
 		String[] data = new String[5];
+		String[] data2 = new String[] {"a", "b", "c"};
+		String[] data3 = {"a", "b", "c"};
 
 		data[0] = "오늘도";
 		data[1] = "즐겁고";

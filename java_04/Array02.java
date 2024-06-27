@@ -10,7 +10,7 @@ public class Array02 {
 		 */
 
 		arrayEx01();
-//		arrayEx02();
+		arrayEx02();
 	}
 
 	// 객체 배열 생성 예제
