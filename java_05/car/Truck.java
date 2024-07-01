@@ -4,6 +4,11 @@ public class Truck extends Car {
 	
 	private double weight;		// 적재량
 	
+	public Truck(String model, int wheel, int seat, String fuel, double weight) {
+		super(model, wheel, seat, fuel);
+		this.weight = weight;
+	}
+	
 	public Truck() {
 		
 	}

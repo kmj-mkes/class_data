@@ -6,7 +6,8 @@ public class CarMain {
 		// carEx1() method 선언
 		// 기본 Car, 화물차 Truck, 경차 LightCar 객체 생성 및 내용 확인
 
-		carEx1();
+//		carEx1();
+		carEx2();
 	}
 	
 	public static void carEx1() {
@@ -37,4 +38,30 @@ public class CarMain {
 		System.out.println(c3.carInfo());
 	}
 
+	public static void carEx2() {
+		Car[] carList = new Car[3];
+		
+		carList[0] = new Truck("", 12, 3, "경유", 5.5);
+		carList[1] = new LightCar("", 4, 4, "휘발유", 0.7);
+		carList[2] = new Car("", 4, 2, "전기");
+		
+		for (Car c : carList) {
+			
+			String carModel = "";
+			
+			if (c instanceof Truck) {
+				carModel = "10톤 트럭";
+			} else if (c instanceof LightCar) {
+				carModel = "레이";
+			} else {
+				carModel = "제네시스";
+			}
+			
+			c.setModel(carModel);
+			System.out.println(c.carInfo());
+		}
+		
+
+		
+	}
 }
