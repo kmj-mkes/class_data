@@ -91,6 +91,32 @@ public class ParkingMng {
 				break;
 
 			case "2" :
+				System.out.print("차량 번호를 입력해 주세요. : ");
+				String number = sc.next();
+				
+				int count = 0;
+				
+				for (int i=0; i<parkingSpace.length; i++) {
+					for (int j=0; j<parkingSpace[i].length; j++) {
+						
+						if (number.equals(parkingSpace[i][j])) {
+							parkingSpace[i][j] = null;
+							System.out.println("출차 완료!! 안녕히 가세요.");
+							break;
+						} else {
+							count++;	
+						}
+						
+//						System.out.println("count >> " + count);
+					}
+				}
+				
+				if (count == ROW * COL) {
+					System.out.println("차량이 존재하지 않습니다.");
+					System.out.println("차량 번호 확인 후 다시 시도해 주세요.");
+				}
+				
+				
 				break;
 
 			case "3" :
