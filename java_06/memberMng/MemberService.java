@@ -35,9 +35,11 @@ public class MemberService {
 				break;
 			case 2 :
 				displayMsg("2. 회원 정보 수정");
+				updateMember();
 				break;
 			case 3 :
 				displayMsg("3. 회원 정보 삭제");
+				deleteMember();
 				break;
 			case 4 :
 				displayMsg("4. 회원 정보 출력(이름)");
@@ -117,6 +119,70 @@ public class MemberService {
 
 	}
 
+	// 2. 회원 정보 수정
+	public void updateMember() {
+
+		List<Member> members = mDAO.findMember();
+
+		System.out.print("수정하고 싶은 아이디를 입력해 주세요. : ");
+		String findId = sc.next();
+		
+		boolean flag = false;
+
+		for (int i=0; i<members.size(); i++) {
+			Member member =  members.get(i);
+
+			if (findId.equals(member.getMemberId())) {
+				System.out.println(member.getMemberName() + "님의 정보를 수정해 주세요.");
+				
+				System.out.print("비밀번호 : ");
+				member.setMemberPw(sc.next());
+				
+				System.out.print("이메일 : ");
+				member.setEmail(sc.next());
+				
+				System.out.print("연락처 : ");
+				member.setPhone(sc.next());
+				
+				flag = true;
+				break;
+			}
+		}
+		
+		if (flag == false) {
+			displayMsg("회원 아이디가 존재하지 않습니다.");
+		}
+	}
+	
+	// 3. 회원 정보 삭제
+	public void deleteMember() {
+		
+		List<Member> members = mDAO.findMember();
+		
+		System.out.print("삭제할 회원 아이디를 입력해 주세요 : ");
+		String findId = sc.next();
+		
+		boolean flag = false;
+		
+		for (int i=0; i<members.size(); i++) {
+			Member member = members.get(i);
+			
+			if (findId.equals(member.getMemberId())) {
+				mDAO.deleteMember(member);
+				displayMsg("삭제 완료!!");
+				
+				flag = true;
+				break;
+			}
+		}
+		
+		if (flag == false) {
+			displayMsg("회원 정보가 없습니다.");
+		}
+		
+	}
+
+	// 4. 회원 정보 출력(이름)
 	public void printMember() {
 
 		List<Member> members = mDAO.findMember();
