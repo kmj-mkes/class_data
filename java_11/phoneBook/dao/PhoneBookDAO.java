@@ -32,17 +32,28 @@ public class PhoneBookDAO {
 		
 		Phone phone = new Phone(name, tel, addr);
 		
-		System.out.println("등록 전 >>> " + phoneBookMap.get(name));
+//		System.out.println("등록 전 >>> " + phoneBookMap.get(name));
 				
 		phoneBookMap.put(name, phone);
 		
-		System.out.println("등록 후 >>> " + phoneBookMap.get(name));
+//		System.out.println("등록 후 >>> " + phoneBookMap.get(name));
 	}
 
 	// 전화번호 수정
 	public void update(String name, String tel, String addr) {
 		// HashMap put 활용
 		// map.put(key, value);
+//		Phone phone = new Phone(name, tel, addr);
+		
+//		System.out.println("등록 전 >>> " + phoneBookMap.get(name));
+		
+		Phone phone = phoneBookMap.get(name);
+		phone.setTel(tel);
+		phone.setAddr(addr);
+				
+		phoneBookMap.put(name, phone);
+		
+//		System.out.println("등록 후 >>> " + phoneBookMap.get(name));
 	}
 
 	// 전화번호 삭제
@@ -69,6 +80,7 @@ public class PhoneBookDAO {
 	}
 
 	// 전화번호 전체 출력
-	public void searchAll() {
+	public HashMap<String, Phone> searchAll() {
+		return phoneBookMap;
 	}
 }
