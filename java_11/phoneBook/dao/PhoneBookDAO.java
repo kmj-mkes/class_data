@@ -29,6 +29,14 @@ public class PhoneBookDAO {
 	public void insert(String name, String tel, String addr) {
 		// HashMap put 활용
 		// map.put(key, value);
+		
+		Phone phone = new Phone(name, tel, addr);
+		
+		System.out.println("등록 전 >>> " + phoneBookMap.get(name));
+				
+		phoneBookMap.put(name, phone);
+		
+		System.out.println("등록 후 >>> " + phoneBookMap.get(name));
 	}
 
 	// 전화번호 수정

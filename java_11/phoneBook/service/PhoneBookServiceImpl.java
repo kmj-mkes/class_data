@@ -90,7 +90,7 @@ import java_11.phoneBook.dao.PhoneBookDAO;
 
  */
 public class PhoneBookServiceImpl implements PhoneBookService {
-	
+
 	public static PhoneBookDAO phoneBookDAO;
 	public static Scanner sc = new Scanner(System.in);
 
@@ -107,6 +107,36 @@ public class PhoneBookServiceImpl implements PhoneBookService {
 		System.out.println();
 
 		// 메뉴 출력 및 선택
+		while (true) {
+			int choice = displayMenu();
+
+			switch(choice) {
+			case 1 :
+				// 등록
+				insert();
+				break;
+			case 2 :
+				// 수정
+				update();
+				break;
+			case 3 :
+				// 삭제
+				delete();
+				break;
+			case 4 :
+				// 검색
+				search();
+				break;
+			case 5 :
+				// 전체 출력
+				searchAll();
+				break;
+			case 0 :
+				System.out.println("프로그램 종료 !!");
+				return;
+			}
+		}
+
 	}
 
 	// 메뉴를 출력하고 작업 번호를 입력 받아 반환하는 메서드
@@ -121,10 +151,10 @@ public class PhoneBookServiceImpl implements PhoneBookService {
 		System.out.println(" 0. 프로그램 종료");
 		System.out.println("------------------------");
 		System.out.print("작업번호 >> ");
-		
+
 		return sc.nextInt();
 	}
-	
+
 	// 새로운 전화번호 정보를 등록하는 메서드 
 	// 이미 등록된 사람은 등록되지 않음 (동명이인 없음)
 	public void insert() {
@@ -143,17 +173,19 @@ public class PhoneBookServiceImpl implements PhoneBookService {
 
 		// 전화번호와 주소 입력 받기
 		System.out.print("전화번호 >> ");
+		String phoneNum = sc.next();
 
 		System.out.println();
 
 		System.out.print("주 소 >> ");
+		String addr = sc.next();
 
 		// 전화번호 등록
-		
+		phoneBookDAO.insert(name, phoneNum, addr);
 
 		System.out.println("'" + name + "'의 전화번호 등록 완료!!");
 	}
-	
+
 	// 전화번호 정보를 수정하는 메서드
 	public void update() {
 		System.out.println();
@@ -164,25 +196,25 @@ public class PhoneBookServiceImpl implements PhoneBookService {
 
 
 		// 새로운 전화번호와 주소 입력 받기
-		
+
 
 		// 새로운 전화번호와 주소로 전화번호 수정
-		
+
 
 		System.out.println("씨의 전화번호 정보를 수정했습니다.");
 	}
-	
+
 	// 전화번호 정보를 삭제하는 메서드
 	public void delete() {
 		System.out.println();
 		System.out.println("삭제할 전화번호 정보를 입력하세요.");
 
-		
+
 		// 삭제할 사람이 있는지 검사
 
 
 		// 전화번호 삭제
-		
+
 
 		System.out.println("씨의 전화번호 정보를 삭제했습니다.");
 	}
@@ -198,21 +230,21 @@ public class PhoneBookServiceImpl implements PhoneBookService {
 
 
 		// 전화번호 검색
-		
-		
+
+
 		// 검색한 전화번호 출력
 
 	}
-	
+
 	// 전체 자료를 출력하는 메서드
 	public void searchAll() {
 		System.out.println();
 		System.out.println("=============================================================");
 		System.out.println(" 번호     이 름     전화번호           주 소");
 		System.out.println("=============================================================");
-		
+
 		// 상세 로직을 구현하시오.
-		
+
 		System.out.println("=============================================================");
 		System.out.println("출력 완료 !!");
 	}
