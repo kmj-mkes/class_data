@@ -60,6 +60,7 @@ public class PhoneBookDAO {
 	public void delete(String name) {
 		// HashMap remove 활용
 		// map.remove(key);
+		phoneBookMap.remove(name);
 	}
 
 	// 전화번호 중복 체크
@@ -76,7 +77,9 @@ public class PhoneBookDAO {
 	}
 
 	// 전화번호 검색
-	public void search(String name) {
+	public Phone search(String name) {
+		Phone phone = phoneBookMap.get(name);
+		return phone;
 	}
 
 	// 전화번호 전체 출력

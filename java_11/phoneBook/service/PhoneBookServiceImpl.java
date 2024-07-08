@@ -223,13 +223,19 @@ public class PhoneBookServiceImpl implements PhoneBookService {
 	public void delete() {
 		System.out.println();
 		System.out.println("삭제할 전화번호 정보를 입력하세요.");
-
+		System.out.println("이름 입력 : ");
+		String name = sc.next();
 
 		// 삭제할 사람이 있는지 검사
-
+		// true : 이미 등록 되어 있음
+		// false : 등록된 정보 없음
+		if (!phoneBookDAO.dupCheck(name)) {
+			System.out.println(name + "씨는 등록되어 있지 않은 정보입니다.");
+			return;
+		}
 
 		// 전화번호 삭제
-
+		phoneBookDAO.delete(name);
 
 		System.out.println("씨의 전화번호 정보를 삭제했습니다.");
 	}
@@ -238,17 +244,28 @@ public class PhoneBookServiceImpl implements PhoneBookService {
 	public void search() {
 		System.out.println();
 		System.out.println("검색할 전화번호 정보를 입력하세요.");
-
+		System.out.println("이름 입력 : ");
+		String name = sc.next();
+		
 		System.out.println();
 
 		// 검색할 사람이 있는지 검사
-
+		// true : 이미 등록 되어 있음
+		// false : 등록된 정보 없음
+		if (!phoneBookDAO.dupCheck(name)) {
+			System.out.println(name + "씨는 등록되어 있지 않은 정보입니다.");
+			return;
+		}
 
 		// 전화번호 검색
-
-
+		Phone phone = phoneBookDAO.search(name);
+		
 		// 검색한 전화번호 출력
-
+		System.out.println("--------------------");
+		System.out.println(" [ 이름 ] " + phone.getName());
+		System.out.println(" [ 전화번호 ] " + phone.getTel());
+		System.out.println(" [ 주소 ] " + phone.getAddr());
+		System.out.println("--------------------");
 	}
 
 	// 전체 자료를 출력하는 메서드
