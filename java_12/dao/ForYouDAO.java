@@ -1,12 +1,15 @@
 package java_12.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ForYouDAO {
 
 	// 저장소
 	ArrayList<String> solutionBook;	// 고민해결책
 	ArrayList<String> fortuneBook;	//포춘쿠키
+	
+	HashMap<String, ArrayList<String>> book;
 
 	// 생성자
 	public ForYouDAO() {
@@ -71,6 +74,30 @@ public class ForYouDAO {
 		fortuneBook.add("맛있는 걸 먹고 행복하다면 오늘 당신은 행복한 하루를 보내고 있는 거에요.");
 		fortuneBook.add("좋아하는 것을 늘려보세요. 그만큼 즐거움이 늘어날 거에요.");
 
+		// 북 셋트
+		book = new HashMap<String, ArrayList<String>>();
+		book.put("solution", solutionBook);
+		book.put("fortune", fortuneBook);
 	}
+	
+	public String selectBook(String bookName) {
+		String result = "";
+		
+		ArrayList<String> resultBook = book.get(bookName);
+		
+		int selectPage = (int) (Math.random() * resultBook.size());
+		
+		result = resultBook.get(selectPage);
+		
+		return result;
+	}
+	
+//	public ArrayList<String> selectSolutionBook() {
+//		return solutionBook;
+//	}
+//	
+//	public ArrayList<String> selectFortuneBook() {
+//		return fortuneBook;
+//	}
 
 }
